@@ -61,8 +61,7 @@ pipeline {
             steps {
                 echo "Building app python!"
                 sh '''
-                cd /tmp/jenkins
-                ./test.sh
+                ./python-app/Build.sh
                 '''
             }
         }
@@ -75,8 +74,7 @@ pipeline {
             steps {
                 echo "Pushing python container image!"
                 sh '''
-                cd /tmp/jenkins
-                ./test.sh
+                ./python-app/Push.sh
                 '''
             }
         }
@@ -89,8 +87,7 @@ pipeline {
             steps {
                 echo "Deploy python container image!"
                 sh '''
-                cd /tmp/
-                ./test.sh
+                ./python-app/Deploy.sh
                 '''
             }
         }
