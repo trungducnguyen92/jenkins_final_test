@@ -1,7 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
-x = latest
-y = jenkins_2
+x = "latest"
+y = "jenkins_2"
 @app.route("/")
 def hello():
     print ("Hello World!")
