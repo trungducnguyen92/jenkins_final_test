@@ -23,8 +23,7 @@ pipeline {
             steps {
                 echo "Building app nodejs!"
                 sh '''
-                cd /tmp/jenkins
-                ./test.sh
+                ./nodejsapp/Build.sh
                 '''
             }
         }
