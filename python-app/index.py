@@ -15,12 +15,11 @@
 #print(x)
 #print(y)
 #print(z)
-    
+import os
 from flask import Flask
 app = Flask(__name__)
 @app.route("/")
-x = "Jenkins"
-def hello(x):
+def hello(x = os.environ['APP_ENV']):
     return "Hello World! " + x;
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int("5000"), debug=True)
