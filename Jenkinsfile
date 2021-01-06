@@ -1,5 +1,10 @@
 pipeline {
     agent none
+	
+    environment {
+        PASS = credentials('registry-pass')
+    }
+	
     parameters {
         choice(
             choices: ['nodejs' , 'python', 'all'],
