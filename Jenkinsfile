@@ -17,7 +17,6 @@ pipeline {
         stage ('build-nodejs') {
             agent {label 'master'}
             when {
-                // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'nodejs' }
             }
             steps {
@@ -31,14 +30,12 @@ pipeline {
 		stage ('push-nodejs') {
 		    agent {label 'master'}
             when {
-				// Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'nodejs' }
             }
             steps {
                 echo "Pushing nodejs container image!"
                 sh '''
-                cd /tmp/jenkins
-                ./test.sh
+		./nodejs-app/Deploy.sh
                 '''
             }
         }
@@ -46,7 +43,6 @@ pipeline {
 		stage ('deploy-nodejs') {
 		    agent {label 'jenkin_2'}
             when {
-                // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'nodejs' }
             }
             steps {
@@ -61,7 +57,6 @@ pipeline {
         stage ('build-python') {
             agent {label 'master'}
             when {
-                // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'python' }
             }
             steps {
@@ -76,7 +71,6 @@ pipeline {
 		stage ('push-python') {
 		    agent {label 'master'}
             when {
-				// Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'python' }
             }
             steps {
@@ -91,7 +85,6 @@ pipeline {
 		stage ('deploy-python') {
 		    agent {label 'jenkin_2'}
             when {
-                // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'python' }
             }
             steps {
@@ -106,7 +99,6 @@ pipeline {
         stage ('all') {
             agent {label 'master'}
             when {
-                // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'all' }
             }
             steps {
@@ -121,7 +113,6 @@ pipeline {
 		stage ('push-all') {
 		    agent {label 'master'}
             when {
-				// Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'all' }
             }
             steps {
@@ -136,7 +127,6 @@ pipeline {
 		stage ('deploy-all') {
 		    agent {label 'jenkin_2'}
             when {
-                // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'all' }
             }
             steps {
