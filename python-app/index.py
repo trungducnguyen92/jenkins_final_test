@@ -9,7 +9,7 @@ def hello():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int("5000"), debug=True)
     
-name,age,country = hello()
+x,y,z = hello()
 print(x)
 print(y)
 print(z)
