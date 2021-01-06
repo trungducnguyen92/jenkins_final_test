@@ -21,9 +21,7 @@ pipeline {
             }
             steps {
                 echo "Building app nodejs!"
-                sh '''
-                ./nodejs-app/Build.sh
-                '''
+                sh './nodejs-app/Build.sh'
             }
         }
 		
@@ -34,9 +32,7 @@ pipeline {
             }
             steps {
                 echo "Pushing nodejs container image!"
-                sh '''
-		./nodejs-app/push.sh
-                '''
+                sh './nodejs-app/push.sh'
             }
         }
 		
@@ -47,9 +43,7 @@ pipeline {
             }
             steps {
                 echo "Deploy nodejs container image!"
-                sh '''
-                ./nodejs-app/Deploy.sh
-                '''
+                sh './nodejs-app/Deploy.sh'
             }
         }
 		
@@ -60,9 +54,7 @@ pipeline {
             }
             steps {
                 echo "Building app python!"
-                sh '''
-                ./python-app/Build.sh
-                '''
+                sh './python-app/Build.sh'
             }
         }
 		
@@ -73,9 +65,7 @@ pipeline {
             }
             steps {
                 echo "Pushing python container image!"
-                sh '''
-                ./python-app/Push.sh
-                '''
+                sh './python-app/Push.sh'
             }
         }
 		
@@ -86,9 +76,7 @@ pipeline {
             }
             steps {
                 echo "Deploy python container image!"
-                sh '''
-                ./python-app/Deploy.sh
-                '''
+                sh './python-app/Deploy.sh'
             }
         }
 		
@@ -100,8 +88,8 @@ pipeline {
             steps {
                 echo "Building app all!"
                 sh '''
-                cd /tmp/jenkins
-                ./test.sh
+                ./nodejs-app/Build.sh
+		./python-app/Build.sh
                 '''
             }
         }
@@ -114,8 +102,8 @@ pipeline {
             steps {
                 echo "Pushing all container image!"
                 sh '''
-                cd /tmp/jenkins
-                ./test.sh
+                ./nodejs-app/push.sh
+		./python-app/Push.sh
                 '''
             }
         }
@@ -128,8 +116,8 @@ pipeline {
             steps {
                 echo "Deploy all container image!"
                 sh '''
-                cd /tmp/
-                ./test.sh
+                ./nodejs-app/Deploy.sh
+		./python-app/Deploy.sh
                 '''
             }
         }
