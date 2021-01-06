@@ -48,8 +48,7 @@ pipeline {
             steps {
                 echo "Deploy nodejs container image!"
                 sh '''
-                cd /tmp/
-                ./test.sh
+                ./nodejs-app/Deploy.sh
                 '''
             }
         }
