@@ -4,7 +4,7 @@ echo "********************"
 echo "** Pushing image ***"
 echo "********************"
 
-IMAGE="nodejsapp"
+IMAGE="pythonapp"
 
 echo "** Logging in ***"
 docker login -u trungducnguyen -p $PASS
