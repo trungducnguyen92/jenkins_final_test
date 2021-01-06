@@ -3,6 +3,7 @@ echo '****Deploy container****'
 echo '*************************'
 
 IMAGE="pythonapp"
+HOST_NAME=$(hostname -f)
 var1="$(docker ps -aq -f name=pythonapp)"
 
 echo "** Logging in ***"
@@ -12,12 +13,10 @@ docker pull trungducnguyen/$IMAGE:latest
 
 if [ -z "$var1" ]
 then
-	HOST_NAME=$(hostname -f)
         docker container run -d -p 5000:5000 --name pythonapp trungducnguyen/$IMAGE:latest
 else
 	echo 'Cleaning old container'
 	docker stop pythonapp
         docker rm pythonapp
-	HOST_NAME=$(hostname -f)
         docker container run -d -p 5000:5000 --name pythonapp trungducnguyen/$IMAGE:latest
 fi
