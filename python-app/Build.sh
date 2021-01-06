@@ -1,6 +1,6 @@
-echo '*********************************************'
-echo '**Build Docker image for nodejs application**'
-echo '*********************************************'
+echo '************************************************'
+echo '**Build Docker image for pythonapp application**'
+echo '************************************************'
 
-IMAGE="nodejsapp"
-cd nodejs-app/ && docker build -t $IMAGE:latest .
+IMAGE="pythonapp"
+cd python-app/ && docker build -t $IMAGE:latest .
