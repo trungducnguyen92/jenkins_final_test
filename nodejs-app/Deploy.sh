@@ -1,5 +1,5 @@
 echo '*************************'
-echo '****Running container****'
+echo '****Deploy container****'
 echo '*************************'
 
 var1="$(docker ps -aq -f name=nodejsapp)"
