@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo "Building app nodejs!"
                 sh '''
-                ./nodejsapp/Build.sh
+                ./nodejs-app/Build.sh
                 '''
             }
         }
