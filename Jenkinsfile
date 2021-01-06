@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo "Pushing nodejs container image!"
                 sh '''
-		./nodejs-app/Deploy.sh
+		./nodejs-app/push.sh
                 '''
             }
         }
