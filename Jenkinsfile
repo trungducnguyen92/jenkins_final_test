@@ -58,7 +58,7 @@ pipeline {
             }
         }
 		
-		stage ('push-python') {
+	stage ('push-python') {
 		    agent {label 'master'}
             when {
                 expression { params.REQUESTED_ACTION == 'python' }
@@ -69,7 +69,7 @@ pipeline {
             }
         }
 		
-		stage ('deploy-python') {
+	stage ('deploy-python') {
 		    agent {label 'jenkin_2'}
             when {
                 expression { params.REQUESTED_ACTION == 'python' }
@@ -94,7 +94,7 @@ pipeline {
             }
         }
 		
-		stage ('push-all') {
+	stage ('push-all') {
 		    agent {label 'master'}
             when {
                 expression { params.REQUESTED_ACTION == 'all' }
@@ -108,7 +108,7 @@ pipeline {
             }
         }
 		
-		stage ('deploy-all') {
+	stage ('deploy-all') {
 		    agent {label 'jenkin_2'}
             when {
                 expression { params.REQUESTED_ACTION == 'all' }
